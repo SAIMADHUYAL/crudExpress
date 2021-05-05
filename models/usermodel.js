@@ -1,7 +1,7 @@
 //Schema for unstructured Data by using Mongoose
 
 var mongoose = require('mongoose'), 
-    Schema = mongoose.schema;
+    Schema = mongoose.Schema;
 
 
     //This is the Schema for the Unstructured data.
@@ -9,8 +9,10 @@ var mongoose = require('mongoose'),
         {
             name : {type: String},
             age:{ type: Number},
-            empid: {type: String}
+            empid: {type: String},
+            projects:{type: Array},
+            followers: {type: Number}
         }
     );
 
-    module.exports = mongoose.model('user',userModel,'userList');
+    module.exports = mongoose.model('user',userModel,'team');
