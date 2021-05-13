@@ -23,6 +23,31 @@ app.post('/datapost',(req,res) =>{
     })
 })
 
+//Update
+app.put('/dataupdate',(req,res) =>{
+    user.findOneAndUpdate({"name":req.body.name},{
+        $set:{
+            age: req.body.age
+        }
+    },{
+        upsert: true
+    },(err,result) =>{
+        if(err) return res.send(err);
+        res.send(result);
+    })
+})
+
+
+
+//Delete - HTTP Method
+app.delete('/deleteuser',(req,res) => {
+        user.findOneAndDelete({"name": req.body.name},(err,result) => {
+        if(err) return res.send(err);
+        res.send('Data Deleted');
+    })
+})
+
+
 
 
 
