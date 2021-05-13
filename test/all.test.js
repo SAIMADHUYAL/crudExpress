@@ -12,7 +12,7 @@ describe('Testing my project api',() => {
             expect(res).to.have.status(200);
             done();
         })
-        .catch((err) => {
+        .catch(function(err) {
             throw(err);
         })
     });
